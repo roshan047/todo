@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  </head>
+  <body>
+    <div align="center">
+      <h1 >TASK PROJECT</h1>
+    </div>
+    <div align="center">
+      <a href="/insert/add" class="btn btn-info">ADD TASK</a>
+    </div>
+    <table class="table table-info table-striped">
+      <thead>
+        <th>id</th>
+        <th>task</th>
+        <th>details</th>
+        <th>date</th>
+        <th>status</th>
+        <th colspan="2">Actions</th>
+      </thead>
+      <tbody>
+        {% for i in show %}
+        <tr>
+          <td>{{i.id}}</td>
+          <td>{{i.heading}}</td>
+          <td>{{i.details}}</td>
+          <td>{{i.date}}</td>
+          <td>{{i.is_deleted}}</td>
+          <td> <a href="/insert/edit" class="btn btn-warning"><i class="bi bi-pencil-fill"></i></a> </td>
+          <td> <a href="/insert/delete/{{i.id}}" class="btn btn-danger"><i class="bi bi-trash-fill"></i></a> </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+</table>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+  </body>
+</html>
